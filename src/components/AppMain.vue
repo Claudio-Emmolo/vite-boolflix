@@ -1,21 +1,23 @@
 <script>
-import { store } from '../store.js';
+import FilmList from './FilmList.vue';
 
 
 export default {
     name: 'AppMain',
-    data() {
-        return {
-            store
-        }
+    components: {
+        FilmList
     },
+
 }
 </script>
 
 <template>
-
+    <main>
+        <!-- Generate Film List -->
+        <FilmList />
+    </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 </style>
