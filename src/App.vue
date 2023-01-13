@@ -7,6 +7,7 @@ import AppMain from './components/AppMain.vue';
 
 
 export default {
+
   name: 'App',
   components: { AppHeader, AppMain },
 
@@ -18,6 +19,7 @@ export default {
   },
 
   methods: {
+    //Generate Film Array
     getFilmApi(userQuery) {
 
       axios.get(this.apiUrl, {
@@ -35,10 +37,6 @@ export default {
           console.log(error);
         })
     },
-  },
-
-  created() {
-    // this.getFilmApi(this.apiUrl)
   },
 }
 </script>
