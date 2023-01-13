@@ -28,7 +28,8 @@ export default {
         }
       })
         .then(function (response) {
-          console.log(response.data);
+          console.log(response.data.results);
+          store.filmList = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
