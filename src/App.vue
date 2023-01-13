@@ -18,9 +18,15 @@ export default {
   },
 
   methods: {
+    // to remove
+    cechEmit(var1) {
+      alert('Done: ' + var1)
+    },
+    //to remove
+
     getFilmApi(importUrl) {
 
-      axios.get(importUrl, {
+      axios.get(this.apiUrl, {
         params: {
           api_key: '16eea8fe6e93b980795f69e2abba8997',
           language: 'it-IT',
@@ -37,12 +43,16 @@ export default {
   },
 
   created() {
-    this.getFilmApi(this.apiUrl)
+    // this.getFilmApi(this.apiUrl)
   },
 }
 </script>
 
 <template>
+  <!-- Import Header -->
+  <AppHeader @sendResearch="cechEmit" />
+  <!-- Import Main -->
+  <AppMain />
 
 </template>
 

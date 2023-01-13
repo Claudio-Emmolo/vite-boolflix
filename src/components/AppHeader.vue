@@ -1,13 +1,19 @@
 <script>
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    data() {
+        return {
+            userSearch: ''
+        }
+    },
 }
 </script>
 
 <template>
-    <div>
-
-    </div>
+    <header>
+        <input type="text" placeholder="Cerca Film" v-model="userSearch">
+        <button @click="$emit('sendResearch', userSearch)">Cerca</button>
+    </header>
 </template>
 
 <style lang="scss">
