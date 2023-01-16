@@ -18,18 +18,34 @@ export default {
 </script>
 
 <template>
-    <div class="poster">
-
-        <img :src="posterUrl + singleFilm.poster_path" :alt="singleFilm.title + ' poster'"
+    <div class="inside-card position-relative">
+        <img class="m-auto" :src="posterUrl + singleFilm.poster_path" :alt="singleFilm.title + ' poster'"
             onerror="this.style.display='none'">
+        <!-- Card Info (back card) -->
+        <FilmCardInfo :singleFilm="singleFilm" class="back-card position-absolute top-0 w-100 h-100 p-4" />
     </div>
-    <!-- Card Info (back card) -->
-    <FilmCardInfo :singleFilm="singleFilm" />
 
 
 
 </template>
 
 <style lang="scss" scoped>
+div.inside-card {
+    width: 342px;
+    height: 513px;
+    background-color: red;
 
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .back-card {
+        background-color: black;
+        color: white;
+        display: none;
+    }
+
+
+}
 </style>
