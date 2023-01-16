@@ -33,7 +33,10 @@ export default {
 div.inside-card {
     width: 342px;
     height: 513px;
-    background-color: red;
+    background-image: url(../assets/img/img-not-avaible.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     &:hover .back-card {
         display: block;
