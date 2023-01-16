@@ -1,9 +1,11 @@
 <script>
+import { store } from '../store'
+
 export default {
     name: 'AppHeader',
     data() {
         return {
-            userSearch: '',
+            store,
         }
     },
     methods: {
@@ -18,9 +20,9 @@ export default {
     <header class="d-flex justify-content-between align-items-center p-4">
         <h1 class="main-logo">Boolflix</h1>
         <div class="searchbar">
-            <input @keyup.enter="emitSearch('sendResearch', userSearch)" type="text" placeholder="Cerca Film"
-                v-model="userSearch">
-            <button @click="emitSearch('sendResearch', userSearch)">
+            <input @keyup="emitSearch('sendResearch', store.userSearch)" type="text" placeholder="Cerca Film"
+                v-model="store.userSearch">
+            <button @click="emitSearch('sendResearch', store.userSearch)">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
