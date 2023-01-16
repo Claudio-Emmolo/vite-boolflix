@@ -1,15 +1,28 @@
 <script>
 export default {
     name: 'FlagLang',
-    props: ['langCode']
+    props: ['langCode'],
+    data() {
+        return {
+
+        }
+    },
+
+    methods: {
+        getImagePath: function (codeLang) {
+            return new URL(`../assets/lang-code/${codeLang}.png`, import.meta.url).href;
+        }
+    }
+
 }
 </script>
 
 <template>
-    <img :src="`https://crowdin.com/images/flags/${langCode}.png`" :alt="langCode + ' flag'"
-        onerror="this.style.display='none'">
+    <img :src="getImagePath(langCode)" :alt="langCode + ' flag'" onerror="this.style.display='none'">
 </template>
 
 <style lang="scss">
-
+img {
+    width: 40px;
+}
 </style>

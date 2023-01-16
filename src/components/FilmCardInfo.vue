@@ -53,9 +53,6 @@ div.film-info {
         font-size: 1rem;
     }
 
-    img {
-        width: 40px;
-    }
 
     div.overview-text {
         width: 100%;
