@@ -19,10 +19,11 @@ export default {
 
 <template>
     <div class="poster">
+
         <img :src="posterUrl + singleFilm.poster_path" :alt="singleFilm.title + ' poster'"
             onerror="this.style.display='none'">
     </div>
-
+    <!-- Card Info (back card) -->
     <FilmCardInfo :singleFilm="singleFilm" />
 
 

@@ -75,5 +75,7 @@ export default {
 </template>
 
 <style  lang="scss">
-// @use 'fontawesome/scss/fontawesome.scss' as *;
+@use 'bootstrap/scss/bootstrap.scss' as *;
+@use './styles/general.scss' as *;
+@use './styles/partials/variables' as *;
 </style>
