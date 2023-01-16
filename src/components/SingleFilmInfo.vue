@@ -5,13 +5,16 @@ export default {
     props: ['singleFilm'],
     data() {
         return {
-
+            posterUrl: 'https://image.tmdb.org/t/p/w342'
         }
     }
 }
 </script>
 
 <template>
+    <div class="poster">
+        <img :src="posterUrl + singleFilm.poster_path" :alt="singleFilm.title + ' poster'">
+    </div>
 
     <h3>Titolo: {{ singleFilm.title || singleFilm.name }} </h3>
     <h4>Titolo originale: {{ singleFilm.original_title || singleFilm.original_name }}</h4>
