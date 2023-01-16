@@ -1,7 +1,12 @@
 <script>
+import FlagLang from './FlagLang.vue';
+
 export default {
     name: 'FilmCardInfo',
     props: ['singleFilm'],
+    components: {
+        FlagLang
+    }
 
 }
 </script>
@@ -12,15 +17,18 @@ export default {
         <h3> <span class="fw-bold">Titolo:</span> {{ singleFilm.title || singleFilm.name }} </h3>
         <h4><span class="fw-bold">Titolo originale: </span> {{ singleFilm.original_title || singleFilm.original_name }}</h4>
         <br>
-        <img :src="`https://crowdin.com/images/flags/${singleFilm.original_language}.png`"
-        :alt="singleFilm.original_language + ' flag'" onerror="this.style.display='none'">
+
+        <!-- <img :src="`https://crowdin.com/images/flags/${singleFilm.original_language}.png`"
+        :alt="singleFilm.original_language + ' flag'" onerror="this.style.display='none'"> -->
+        <FlagLang :langCode="singleFilm.original_language"/>
+
         <br>
         <div class="star-rate">
             <span class="fw-bold">Voto: </span>
             <font-awesome-icon icon="star" class="vote" v-for="n in Math.ceil(singleFilm.vote_average / 2)" />
             <font-awesome-icon icon="star" v-for="n in (5 - Math.ceil(singleFilm.vote_average / 2))" />
         </div>
-        
+
         <br>
         <div class="overview-text" v-show="singleFilm.overview != '' ">
 
