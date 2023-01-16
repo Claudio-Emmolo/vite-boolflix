@@ -2,6 +2,8 @@
 import { store } from './store.js';
 import axios from 'axios';
 
+
+
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
@@ -72,6 +74,6 @@ export default {
 
 </template>
 
-<style>
-
+<style  lang="scss">
+// @use 'fontawesome/scss/fontawesome.scss' as *;
 </style>

@@ -5,10 +5,12 @@ export default {
     props: ['singleFilm'],
     data() {
         return {
-            posterUrl: 'https://image.tmdb.org/t/p/w342'
+            posterUrl: 'https://image.tmdb.org/t/p/w342',
         }
     }
 }
+
+
 </script>
 
 <template>
@@ -21,10 +23,20 @@ export default {
     <img :src="`https://crowdin.com/images/flags/${singleFilm.original_language}.png`"
         :alt="singleFilm.original_language + ' flag'" onerror="this.style.display='none'">
     <br>
-    <span>Voto: {{ singleFilm.vote_average }}</span>
+    <!-- <span>Voto: {{ Math.ceil(singleFilm.vote_average / 2) }}</span> -->
+    <div class="star-rate">
+        <span class="vote" v-for="n in Math.ceil(singleFilm.vote_average / 2)">*</span>
+        <span v-for="n in (5 - Math.ceil(singleFilm.vote_average / 2))">*</span>
+    </div>
 
 </template>
 
 <style lang="scss" scoped>
+div.star-rate {
+    font-size: 4rem;
 
+    .vote {
+        color: orange;
+    }
+}
 </style>
