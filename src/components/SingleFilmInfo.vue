@@ -35,6 +35,10 @@ div.inside-card {
     height: 513px;
     background-color: red;
 
+    &:hover .back-card {
+        display: block;
+    }
+
     img {
         width: 100%;
         height: 100%;

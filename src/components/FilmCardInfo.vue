@@ -9,20 +9,23 @@ export default {
 <template lang="">
     <div class="film-info">
 
-        <h3>Titolo: {{ singleFilm.title || singleFilm.name }} </h3>
-        <h4>Titolo originale: {{ singleFilm.original_title || singleFilm.original_name }}</h4>
+        <h3> <span class="fw-bold">Titolo:</span> {{ singleFilm.title || singleFilm.name }} </h3>
+        <h4><span class="fw-bold">Titolo originale: </span> {{ singleFilm.original_title || singleFilm.original_name }}</h4>
+        <br>
         <img :src="`https://crowdin.com/images/flags/${singleFilm.original_language}.png`"
         :alt="singleFilm.original_language + ' flag'" onerror="this.style.display='none'">
         <br>
         <div class="star-rate">
-            <span>Voto: </span>
+            <span class="fw-bold">Voto: </span>
             <font-awesome-icon icon="star" class="vote" v-for="n in Math.ceil(singleFilm.vote_average / 2)" />
             <font-awesome-icon icon="star" v-for="n in (5 - Math.ceil(singleFilm.vote_average / 2))" />
         </div>
-        <div class="overview-text">
+        
+        <br>
+        <div class="overview-text" v-show="singleFilm.overview != '' ">
 
             <p>
-                Overview:
+                <span class="fw-bold"> Overview: </span>
                 {{singleFilm.overview}}
             </p>
         </div>
@@ -51,6 +54,7 @@ div.film-info {
         height: 100%;
 
         p {
+            height: 50%;
             overflow-y: auto;
             font-size: .8rem;
         }
@@ -60,6 +64,10 @@ div.film-info {
 div.star-rate {
     font-size: 1.5rem;
     margin-bottom: .5rem;
+
+    span {
+        font-size: 1rem;
+    }
 
     .vote {
         color: orange;
