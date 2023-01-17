@@ -13,8 +13,6 @@ export default {
         }
     }
 }
-
-
 </script>
 
 <template>
@@ -24,9 +22,6 @@ export default {
         <!-- Card Info (back card) -->
         <FilmCardInfo :singleFilm="singleFilm" class="back-card position-absolute top-0 w-100 h-100 p-4" />
     </div>
-
-
-
 </template>
 
 <style lang="scss" scoped>

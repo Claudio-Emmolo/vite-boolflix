@@ -2,7 +2,7 @@
 import { store } from '../store.js';
 import axios from 'axios';
 
-import SingleFilmInfo from './SingleFilmInfo.vue';
+import SingleFilmInfo from './card-components/SingleFilmInfo.vue';
 
 
 export default {
@@ -19,6 +19,7 @@ export default {
         }
     },
     methods: {
+        //Generate popular Film
         getPopularFilm() {
             axios.get(this.apiPopularFilm, {
                 params: {

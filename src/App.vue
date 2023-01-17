@@ -29,7 +29,7 @@ export default {
     //Generate Film Array
     getFilmApi(userQuery) {
       store.filmList = []
-      // For Film
+      // For Movies
       axios.get(this.apiUrlFilm, {
         params: {
           api_key: this.apiKey,
@@ -38,14 +38,13 @@ export default {
         }
       })
         .then(function (response) {
-          console.log(response.data.results);
           store.filmList = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
         })
 
-      // For Series
+      // For Series Tv
       axios.get(this.apiUrlTv, {
         params: {
           api_key: this.apiKey,
@@ -54,7 +53,6 @@ export default {
         }
       })
         .then(function (response) {
-          console.log(response.data.results);
           store.filmList.push(...response.data.results);
         })
         .catch(function (error) {

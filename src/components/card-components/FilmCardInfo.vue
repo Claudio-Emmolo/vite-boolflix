@@ -1,5 +1,5 @@
 <script>
-import FlagLang from './FlagLang.vue';
+import FlagLang from '../FlagLang.vue';
 
 export default {
     name: 'FilmCardInfo',
@@ -11,20 +11,25 @@ export default {
 }
 </script>
 
-<template lang="">
+<template>
     <div class="film-info">
-
+        <!-- Titles -->
         <h3> <span class="fw-bold">Titolo:</span> {{ singleFilm.title ? singleFilm.title : singleFilm.name }} </h3>
-        <h4 v-show="(singleFilm.title || singleFilm.name) != (singleFilm.original_title || singleFilm.original_name ) ">
-            <span class="fw-bold">Titolo originale: </span> {{ singleFilm.original_title ? singleFilm.original_title : singleFilm.original_name }}
+        <h4 v-show="(singleFilm.title || singleFilm.name) != (singleFilm.original_title || singleFilm.original_name)">
+            <span class="fw-bold">Titolo originale: </span> {{
+                singleFilm.original_title ? singleFilm.original_title :
+                    singleFilm.original_name
+            }}
         </h4>
         <br>
 
-        <!-- <img :src="`https://crowdin.com/images/flags/${singleFilm.original_language}.png`"
+        <!-- Flag Languages -->
+        <!-- <img :src="`https://crowdin.com/images/flags/${singleFilm.original_language}.png`" 
         :alt="singleFilm.original_language + ' flag'" onerror="this.style.display='none'"> -->
-        <FlagLang :langCode="singleFilm.original_language"/>
+        <FlagLang :langCode="singleFilm.original_language" />
 
         <br>
+        <!-- Creating rating stars -->
         <div class="star-rate">
             <span class="fw-bold">Voto: </span>
             <font-awesome-icon icon="star" class="vote" v-for="n in Math.ceil(singleFilm.vote_average / 2)" />
@@ -32,14 +37,14 @@ export default {
         </div>
 
         <br>
-        <div class="overview-text" v-show="singleFilm.overview != '' ">
-
+        <!-- Movie/Tv Overview  -->
+        <div class="overview-text" v-show="singleFilm.overview != ''">
             <p>
                 <span class="fw-bold"> Overview: </span>
-                {{singleFilm.overview}}
+                {{ singleFilm.overview }}
             </p>
         </div>
-        
+
     </div>
 </template>
 

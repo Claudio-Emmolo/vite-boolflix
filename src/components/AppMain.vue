@@ -1,9 +1,8 @@
 <script>
 import { store } from '../store.js';
 
-import FilmList from './FilmList.vue';
+import FilmList from './card-components/FilmList.vue';
 import PopularFilm from './PopularFilm.vue';
-
 
 
 export default {
@@ -27,7 +26,7 @@ export default {
         <FilmList v-if="store.filmList.length > 0 && store.userSearch != ''" />
         <!-- Show Popular Film -->
         <PopularFilm v-else-if="store.filmList.length == 0 && store.userSearch == ''" />
-        <!-- Film not find -->
+        <!-- Condition for Film not find -->
         <span v-else-if="store.filmList.length == 0 && store.userSearch != ''">Nessun Film trovato</span>
     </main>
 </template>
