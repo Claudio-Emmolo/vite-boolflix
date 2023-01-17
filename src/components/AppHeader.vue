@@ -50,6 +50,12 @@ header {
         background-color: $body-bg;
         border: 0;
 
+        i.fa-magnifying-glass {
+            color: white;
+            padding: 0;
+            font-size: 1rem;
+        }
+
         &:focus {
             outline: 0;
         }

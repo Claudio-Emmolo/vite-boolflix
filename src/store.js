@@ -6,6 +6,7 @@ export const store = reactive({
     filmGenre: [],
     popularMovie: [], //Array popular Movies
     openMoreInfoBox: false,
-    clickedIdFilm: ''
+    clickedIdFilm: '',
+    backdropClicked: ''
 
 });

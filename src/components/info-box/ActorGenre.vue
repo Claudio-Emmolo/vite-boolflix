@@ -22,6 +22,7 @@ export default {
             store.filmGenre = []
             store.clickedIdFilm = "";
             store.openMoreInfoBox = false;
+            store.backdropClicked = ''
         },
         getActorList(typeFilm, filmId) {
             const queryID = `http://api.themoviedb.org/3/${typeFilm}/${filmId}/credits?`;
@@ -51,23 +52,30 @@ export default {
 
 <template>
     <section id="actor-box" class="d-flex position-relative">
-        <button @click="closeInfo()" class="position-absolute top-0 end-0 m-4">X</button>
-        <div class="box-container m-auto d-flex">
+        <img :src="`https://image.tmdb.org/t/p/w1280/${store.backdropClicked}`" alt="Bg Film"
+            class="backdrop-img w-100 h-100 position-absolute">
+        <button @click="closeInfo()" class="position-absolute top-0 end-0 m-4">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+        <div class="black-bg d-flex">
 
-            <div class="actor">
-                <h3>Attori:</h3>
-                <ul v-if="actorList.length > 0">
-                    <li v-for="index in 5">
-                        {{ actorList[index - 1].name }}
-                    </li>
-                </ul>
-            </div>
+            <div class="box-container m-auto d-flex">
 
-            <div class="genre">
+                <div class="actor">
+                    <h3>Attori:</h3>
+                    <ul v-if="actorList.length > 0">
+                        <li v-for="index in 5">
+                            {{ actorList[index - 1].name }}
+                        </li>
+                    </ul>
+                </div>
 
-                <h3>Generi:</h3>
+                <div class="genre">
 
-                <InfoGenre />
+                    <h3>Generi:</h3>
+
+                    <InfoGenre />
+                </div>
             </div>
         </div>
     </section>
@@ -82,6 +90,30 @@ section#actor-box {
     background-color: $header-bg;
     width: 100%;
     height: 100vh;
+}
+
+img.backdrop-img {
+    filter: blur(15px);
+    transform: scale(120%);
+}
+
+div.black-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.418);
+    z-index: 5;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    z-index: 6;
+
+    i {
+
+        color: red;
+        font-size: 3rem;
+    }
 }
 
 div.genre,

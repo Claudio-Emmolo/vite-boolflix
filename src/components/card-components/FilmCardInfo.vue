@@ -15,7 +15,8 @@ export default {
         }
     },
     methods: {
-        clickOpenMoreInfo(filmID, filmGenre) {
+        clickOpenMoreInfo(filmID, filmGenre, backdrop) {
+            store.backdropClicked = backdrop
             store.filmGenre = filmGenre
             store.clickedIdFilm = filmID;
             store.openMoreInfoBox = true;
@@ -63,8 +64,11 @@ export default {
         </div>
 
         <!-- Open More Info Box -->
-        <button @click="clickOpenMoreInfo(singleFilm.id, singleFilm.genre_ids)"
-            class="position-absolute top-0 end-0">OPEN</button>
+        <button @click="clickOpenMoreInfo(singleFilm.id, singleFilm.genre_ids, singleFilm.backdrop_path)"
+            class="position-absolute bottom-0 end-0 position-relative">
+            <i class="fa-solid fa-arrow-right position-absolute top-50 left-50"></i>
+            <i class="fa-solid fa-info position-absolute top-50 left-50"></i>
+        </button>
 
     </div>
 </template>
@@ -111,6 +115,37 @@ div.star-rate {
 
     .vote {
         color: orange;
+    }
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background-color: white;
+    border-top-left-radius: 50%;
+
+    i {
+        font-size: .9rem;
+        padding: 1rem;
+        color: black;
+        transform: translate(-50%, -50%);
+
+    }
+
+    i.fa-arrow-right {
+        display: none;
+    }
+
+    &:hover {
+        i.fa-arrow-right {
+            display: inline;
+            font-size: 1.5rem;
+        }
+
+        i.fa-info {
+            display: none;
+        }
     }
 }
 </style>
