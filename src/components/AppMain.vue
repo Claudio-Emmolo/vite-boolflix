@@ -27,7 +27,6 @@ export default {
         <FilmList v-if="store.filmList.length > 0 && store.userSearch != ''" />
         <!-- Show Popular Film -->
         <PopularFilm v-else-if="store.filmList.length == 0 && store.userSearch == ''" />
-
         <!-- Film not find -->
         <span v-else-if="store.filmList.length == 0 && store.userSearch != ''">Nessun Film trovato</span>
     </main>

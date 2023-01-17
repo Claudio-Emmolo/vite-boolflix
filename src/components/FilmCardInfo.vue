@@ -14,9 +14,9 @@ export default {
 <template lang="">
     <div class="film-info">
 
-        <h3> <span class="fw-bold">Titolo:</span> {{ singleFilm.title || singleFilm.name }} </h3>
+        <h3> <span class="fw-bold">Titolo:</span> {{ singleFilm.title ? singleFilm.title : singleFilm.name }} </h3>
         <h4 v-show="(singleFilm.title || singleFilm.name) != (singleFilm.original_title || singleFilm.original_name ) ">
-            <span class="fw-bold">Titolo originale: </span> {{ singleFilm.original_title || singleFilm.original_name }}
+            <span class="fw-bold">Titolo originale: </span> {{ singleFilm.original_title ? singleFilm.original_title : singleFilm.original_name }}
         </h4>
         <br>
 
