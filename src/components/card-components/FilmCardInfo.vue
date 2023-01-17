@@ -14,7 +14,10 @@ export default {
 <template>
     <div class="film-info">
         <!-- Titles -->
-        <h3> <span class="fw-bold">Titolo:</span> {{ singleFilm.title ? singleFilm.title : singleFilm.name }} </h3>
+        <h3>
+            <span class="fw-bold title">Titolo: </span>
+            {{ singleFilm.title ? singleFilm.title : singleFilm.name }}
+        </h3>
         <h4 v-show="(singleFilm.title || singleFilm.name) != (singleFilm.original_title || singleFilm.original_name)">
             <span class="fw-bold">Titolo originale: </span> {{
                 singleFilm.original_title ? singleFilm.original_title :
@@ -49,15 +52,22 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../../styles/general.scss' as *;
+@use '../../styles/partials/variables' as *;
+
 div.film-info {
     overflow: hidden;
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+
+        span.title {
+            color: $title-red;
+        }
     }
 
     h4 {
-        font-size: 1rem;
+        font-size: .8rem;
     }
 
 

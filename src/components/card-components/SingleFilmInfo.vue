@@ -28,13 +28,25 @@ export default {
 div.inside-card {
     width: 342px;
     height: 513px;
-    background-image: url(../assets/img/img-not-avaible.png);
+    background-image: url(../../assets/img/img-not-avaible.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
+
+
+    &:hover {
+        img {
+            transition: all .3s;
+            transform: scale(1.2);
+            filter: blur(10px)
+        }
+
+    }
 
     &:hover .back-card {
-        display: block;
+        transition: all .5s;
+        opacity: 1;
     }
 
     img {
@@ -43,9 +55,9 @@ div.inside-card {
     }
 
     .back-card {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.548);
         color: white;
-        display: none;
+        opacity: 0;
     }
 
 
