@@ -19,6 +19,7 @@ export default {
     },
     methods: {
         closeInfo() {
+            store.filmGenre = []
             store.clickedIdFilm = "";
             store.openMoreInfoBox = false;
         },
@@ -49,29 +50,57 @@ export default {
 </script>
 
 <template>
-    <section id="actor-box" class="d-flex justify-content-center bg-danger position-relative">
+    <section id="actor-box" class="d-flex position-relative">
         <button @click="closeInfo()" class="position-absolute top-0 end-0 m-4">X</button>
-        <div class="actor">
-            <h3>Attori:</h3>
-            <ul v-if="actorList.length > 0">
-                <li v-for="index in 5">
-                    {{ actorList[index - 1].name }}
-                </li>
-            </ul>
-        </div>
+        <div class="box-container m-auto d-flex">
 
-        <div class="genre">
+            <div class="actor">
+                <h3>Attori:</h3>
+                <ul v-if="actorList.length > 0">
+                    <li v-for="index in 5">
+                        {{ actorList[index - 1].name }}
+                    </li>
+                </ul>
+            </div>
 
-            <h3>Generi:</h3>
+            <div class="genre">
 
-            <InfoGenre />
+                <h3>Generi:</h3>
+
+                <InfoGenre />
+            </div>
         </div>
     </section>
 </template>
 
 <style lang="scss">
+@use '../../styles/partials/variables' as *;
+
 section#actor-box {
     z-index: 2;
     color: white;
+    background-color: $header-bg;
+    width: 100%;
+    height: 100vh;
+}
+
+div.genre,
+div.actor {
+    h3 {
+        text-align: center;
+        text-transform: uppercase;
+        color: $title-red;
+    }
+
+    margin: 0 5rem;
+    padding: 1rem;
+
+    ul {
+        padding: 0;
+
+        li {
+            list-style: none;
+        }
+    }
 }
 </style>

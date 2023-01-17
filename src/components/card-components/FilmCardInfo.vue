@@ -15,7 +15,8 @@ export default {
         }
     },
     methods: {
-        clickOpenMoreInfo(filmID) {
+        clickOpenMoreInfo(filmID, filmGenre) {
+            store.filmGenre = filmGenre
             store.clickedIdFilm = filmID;
             store.openMoreInfoBox = true;
         }
@@ -62,7 +63,8 @@ export default {
         </div>
 
         <!-- Open More Info Box -->
-        <button @click="clickOpenMoreInfo(singleFilm.id)" class="position-absolute top-0 end-0">OPEN</button>
+        <button @click="clickOpenMoreInfo(singleFilm.id, singleFilm.genre_ids)"
+            class="position-absolute top-0 end-0">OPEN</button>
 
     </div>
 </template>
