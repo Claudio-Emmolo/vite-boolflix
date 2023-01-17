@@ -1,4 +1,6 @@
 <script>
+import { store } from '../../store';
+
 import FlagLang from '../FlagLang.vue';
 
 export default {
@@ -6,13 +8,24 @@ export default {
     props: ['singleFilm'],
     components: {
         FlagLang
-    }
+    },
+    data() {
+        return {
+            store
+        }
+    },
+    methods: {
+        clickOpenMoreInfo(filmID) {
+            store.clickedIdFilm = filmID;
+            store.openMoreInfoBox = true;
+        }
+    },
 
 }
 </script>
 
 <template>
-    <div class="film-info">
+    <div class="film-info position-relative">
         <!-- Titles -->
         <h3>
             <span class="fw-bold title">Titolo: </span>
@@ -47,6 +60,9 @@ export default {
                 {{ singleFilm.overview }}
             </p>
         </div>
+
+        <!-- Open More Info Box -->
+        <button @click="clickOpenMoreInfo(singleFilm.id)" class="position-absolute top-0 end-0">OPEN</button>
 
     </div>
 </template>

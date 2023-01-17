@@ -6,12 +6,13 @@ import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import ActorGenre from './components/info-box/ActorGenre.vue'
 
 
 export default {
 
   name: 'App',
-  components: { AppHeader, AppMain },
+  components: { AppHeader, AppMain, ActorGenre },
 
   data() {
     return {
@@ -66,6 +67,9 @@ export default {
 </script>
 
 <template>
+  <!-- Import Info Box -->
+  <ActorGenre v-if="store.openMoreInfoBox" class="position-fixed w-100 top-0" />
+
   <!-- Import Header -->
   <AppHeader @sendResearch="getFilmApi" />
   <!-- Import Main -->

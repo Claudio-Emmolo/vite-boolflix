@@ -3,7 +3,7 @@ import { store } from '../store.js';
 
 import FilmList from './card-components/FilmList.vue';
 import PopularFilm from './PopularFilm.vue';
-import ActorGenre from './ActorGenre.vue'
+import ActorGenre from './info-box/ActorGenre.vue'
 
 
 
@@ -25,8 +25,6 @@ export default {
 
 <template>
     <main>
-        <ActorGenre />
-        <!-- Generate Film List -->
         <FilmList v-if="store.filmList.length > 0 && store.userSearch != ''" />
         <!-- Show Popular Film -->
         <PopularFilm v-else-if="store.filmList.length == 0 && store.userSearch == ''" />
