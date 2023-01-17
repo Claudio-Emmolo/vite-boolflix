@@ -26,7 +26,6 @@ export default {
             })
                 .then((response) => {
                     this.AllGenre.push(...response.data.genres);
-                    console.log('quest ' + this.AllGenre);
                 })
                 .catch(function (error) {
                     console.log(error);

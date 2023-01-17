@@ -28,7 +28,6 @@ export default {
                 }
             })
                 .then(function (response) {
-                    console.log(response.data.results);
                     store.popularMovie = response.data.results;
                 })
                 .catch(function (error) {

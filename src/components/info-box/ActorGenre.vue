@@ -33,13 +33,11 @@ export default {
                 }
             })
                 .then((response) => {
-                    console.log(response.data.cast);
                     this.actorList.push(...response.data.cast);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-            console.log("array:" + this.actorList);
         },
     },
     created() {
