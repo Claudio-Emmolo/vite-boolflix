@@ -40,5 +40,18 @@ header {
         color: $title-red;
         text-transform: uppercase;
     }
+
+    input,
+    button {
+        padding: .5rem;
+        color: white;
+        background-color: $body-bg;
+        border: 0;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
 }
 </style>
