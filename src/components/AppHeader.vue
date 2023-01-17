@@ -1,5 +1,6 @@
 <script>
-import { store } from '../store'
+import { store } from '../store';
+
 
 export default {
     name: 'AppHeader',
@@ -17,6 +18,7 @@ export default {
 </script>
 
 <template>
+    <ActorGenre />
     <header class="d-flex justify-content-between align-items-center p-4">
         <h1 class="main-logo">Boolflix</h1>
         <div class="searchbar">

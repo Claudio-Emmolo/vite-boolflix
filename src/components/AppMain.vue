@@ -3,13 +3,16 @@ import { store } from '../store.js';
 
 import FilmList from './card-components/FilmList.vue';
 import PopularFilm from './PopularFilm.vue';
+import ActorGenre from './ActorGenre.vue'
+
 
 
 export default {
     name: 'AppMain',
     components: {
         FilmList,
-        PopularFilm
+        PopularFilm,
+        ActorGenre
     },
     data() {
         return {
@@ -22,6 +25,7 @@ export default {
 
 <template>
     <main>
+        <ActorGenre />
         <!-- Generate Film List -->
         <FilmList v-if="store.filmList.length > 0 && store.userSearch != ''" />
         <!-- Show Popular Film -->
@@ -33,6 +37,8 @@ export default {
 
 <style lang="scss" scoped>
 span {
+    display: block;
     color: white;
+    padding: 2rem;
 }
 </style>
